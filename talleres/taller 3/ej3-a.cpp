@@ -3,12 +3,12 @@
 #include <vector>
 #include <numeric>
 #include <iterator>
+#include <cassert>
 
 #define N 100
 #define THREAD_COUNT 5
 
 using namespace std;
-
 
 void verify(vector<int> v1, vector<int> v2, vector<int> v3) {
     cout << "v1 = [" << v1[0] << ", " << v1[1] << ", " << ", ..., " << v1[N - 2] << ", " << v1[N - 1] << "]" << endl;
@@ -20,7 +20,19 @@ void verify(vector<int> v1, vector<int> v2, vector<int> v3) {
     }
 }
 
+void calculate(int from, vector<int>::iterator v1_begin, vector<int>::iterator v1_end,
+                         vector<int>::iterator v2_begin, vector<int>::iterator v2_end,
+                         vector<int>::iterator v3_begin, vector<int>::iterator v3_end) {
+    while(v1_begin != v1_end and v2_begin != v2_end and v3_begin != v3_end) {
+        *v3_begin = (*v1_begin) * (*v2_begin);
+        v1_begin++;
+        v2_begin++;
+        v3_begin++;
+    }
+}
+
 int main() {
+    vector<thread> threads;
     vector<int> v1(N);
     vector<int> v2(N);
     iota(v1.begin(), v1.end(), 1);
@@ -28,9 +40,18 @@ int main() {
 
     vector<int> v3(N);
     
-    
-    // TO-DO 
+    for(int i = 0; i < THREAD_COUNT; i++) {
+        int step = N / THREAD_COUNT;
+        int from = i * step;
+        int to = (i + 1) * step;
+        threads.emplace_back(calculate, i * 20, v1.begin() + from, v1.begin() + to,
+                                                v2.begin() + from, v2.begin() + to,
+                                                v3.begin() + from, v3.begin() + to);
+    }
 
+    for(auto &t : threads) {
+        t.join();
+    }    
 
     verify(v1, v2, v3);
 
