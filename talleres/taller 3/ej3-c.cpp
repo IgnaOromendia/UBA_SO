@@ -3,6 +3,7 @@
 #include <vector>
 #include <numeric>
 #include <iterator>
+#include <atomic>
 
 // Rows and columns
 #define RR 3
@@ -10,7 +11,7 @@
 
 using namespace std;
 
-atomic_int pos(0);
+atomic<int> pos(0);
 
 void imprimoVector(vector<int> v, int vectorSize){
     for (int i = 0; i < vectorSize; ++i) {
