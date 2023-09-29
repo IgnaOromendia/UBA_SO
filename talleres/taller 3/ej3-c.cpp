@@ -10,6 +10,7 @@
 #define CC 3
 
 using namespace std;
+using matriz = matriz;
 
 atomic<int> pos(0);
 
@@ -22,7 +23,7 @@ void imprimoVector(vector<int> v, int vectorSize){
         }
     }
 }
-void imprimoMatriz(vector<vector<int>> m, int matrixSize){
+void imprimoMatriz(matriz m, int matrixSize){
     for (int i = 0; i < matrixSize; ++i) {
         cout << "Fila " << i << ": ";
         for (int j = 0; j < matrixSize; ++j) {
@@ -34,7 +35,7 @@ void imprimoMatriz(vector<vector<int>> m, int matrixSize){
         }
     }
 }
-vector<int> tomarColumna(vector<vector<int>> matrix, int columna){
+vector<int> tomarColumna(matriz matrix, int columna){
     vector<int> resultado;
 
     for(int i=0; i<RR; i++){
@@ -45,12 +46,14 @@ vector<int> tomarColumna(vector<vector<int>> matrix, int columna){
     return resultado;
 }
 
-
+void multplicar_matriz(matriz& m1, matriz& m2, matriz& m3) {
+    
+}
 
 int main() {
-    vector<vector<int>> matrix1(RR, vector<int>(CC));
-    vector<vector<int>> matrix2(RR, vector<int>(CC));
-    vector<vector<int>> matrixRes(RR, vector<int>(CC));
+    matriz matrix1(RR, vector<int>(CC));
+    matriz matrix2(RR, vector<int>(CC));
+    matriz matrixRes(RR, vector<int>(CC));
 
     // Inicializo valores de matrices
     int matrixSize = CC;
@@ -61,8 +64,11 @@ int main() {
         }
     }
 
+    vector<thread> threads;
 
-    /** TO-DO **/
+    for(int i = 0; i < matrixSize; i++){
+        threads.emplace_back();
+    }
 
     /** IMPRIMO MATRICES **/
     imprimoMatriz(matrix1, matrixSize);
