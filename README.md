@@ -48,4 +48,6 @@ Lic. en Ciencias de la Computación - FCEN - UBA\
         - [Ejercicios](talleres/taller%202/pipes/)
     - Taller 3
         - [Ejercicios](talleres/taller%203/)
-    
+- Parciales
+    - [Primeros parciales](parciales/primeros_parciales)
+        - [Recuperatioro 06-07-23](parciales/primeros_parciales/recu_06_07)
