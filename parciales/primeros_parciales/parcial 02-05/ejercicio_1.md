@@ -41,8 +41,6 @@ void carrito(int i) {
     }
 }
 
-[0,1,2]
-
 void persona() {
     // Esperar a que haya un carrito disponible
     permiso_subir[indice_carrito].wait();
