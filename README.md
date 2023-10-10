@@ -42,6 +42,7 @@ Lic. en Ciencias de la Computación - FCEN - UBA\
         - [Ejercicio 18](practicas/practica_3/ej_18.md)
     - [Practica 4](practicas/practica_4/practica4.pdf): Administración de memoria
     - [Practica 5](practicas/practica_5/practica5.pdf): E/S y Drivers
+        - [Ejercicio 1](practicas/practica_5/ej_01.md)
 - Talleres
     - [Taller 1](talleres/taller%201/enunciado/enunciado.pdf)
         - [Ejercicios](talleres/taller%201/src/)
