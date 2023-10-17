@@ -44,6 +44,7 @@ Lic. en Ciencias de la Computación - FCEN - UBA\
     - [Practica 5](practicas/practica_5/practica5.pdf): E/S y Drivers
         - [Ejercicio 1](practicas/practica_5/ej_01.md)
         - [Ejercicio 4](practicas/practica_5/ej_04.md)
+        - [Ejercicio 7](practicas/practica_5/ej_07.md)
 - Talleres
     - [Taller 1](talleres/taller%201/enunciado/enunciado.pdf)
         - [Ejercicios](talleres/taller%201/src/)
