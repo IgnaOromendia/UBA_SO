@@ -283,7 +283,6 @@ struct Ext2FSInode * Ext2FS::load_inode(unsigned int inode_number) {
 	int table = descriptor->inode_table;
 	unsigned char* buffer = (unsigned char*)(malloc(1024));
 	read_block(table, buffer);
-	free(buffer);
 	return (Ext2FSInode*)(buffer[inode_index]);
 
 }
