@@ -291,7 +291,7 @@ unsigned int Ext2FS::get_block_address(struct Ext2FSInode * inode, unsigned int 
 	// Directo
 	if (block_number < 12) return inode->block[block_number];
 
-	unsigned char* buffer = (unsigned char*)(malloc(1024 << superblock()->log_block_size));
+	unsigned char* buffer = (unsigned char*)(malloc(1024 << _superblock->log_block_size));
 	unsigned int result;
 	int offset;
 	int block_address;
@@ -304,7 +304,7 @@ unsigned int Ext2FS::get_block_address(struct Ext2FSInode * inode, unsigned int 
 		result = (unsigned int)(buffer[offset]);
 	} else if (block_number < (256*256) + 256 + 12) {
 		// Indirecto Doble 
-		unsigned char* buffer_2 = (unsigned char*)(malloc(1024 << superblock()->log_block_size));
+		unsigned char* buffer_2 = (unsigned char*)(malloc(1024 << _superblock->log_block_size));
 		offset = 256 + 12;
 
 		int ind_doble_addr = inode->block[13];
@@ -317,8 +317,8 @@ unsigned int Ext2FS::get_block_address(struct Ext2FSInode * inode, unsigned int 
 		free(buffer_2);
 	} else {
 		// Indirecto Triple 
-		unsigned char* buffer_2 = (unsigned char*)(malloc(1024 << superblock()->log_block_size));
-		unsigned char* buffer_3 = (unsigned char*)(malloc(1024 << superblock()->log_block_size));
+		unsigned char* buffer_2 = (unsigned char*)(malloc(1024 << _superblock->log_block_size));
+		unsigned char* buffer_3 = (unsigned char*)(malloc(1024 << _superblock->log_block_size));
 		offset = (256*256) + 256 + 12;
 
 		int ind_triple_addr = inode->block[14];
@@ -329,7 +329,7 @@ unsigned int Ext2FS::get_block_address(struct Ext2FSInode * inode, unsigned int 
 		int ind_simple_addr = (unsigned int)(buffer[(block_number - offset) % 256]);
 
 		read_block(ind_simple_addr, buffer_2);
-		result = (unsigned int)(buffer_2[(block_number - offset) % 256]);
+		result = (unsigned int)(buffer_2[(block_number - offset)]);
 
 		free(buffer_2);
 		free(buffer_3);
@@ -348,15 +348,24 @@ void Ext2FS::read_block(unsigned int block_address, unsigned char * buffer)
 		_hdd.read(blockaddr2sector(block_address)+i, buffer+i*SECTOR_SIZE);
 	}
 
-struct Ext2FSInode * Ext2FS::get_file_inode_from_dir_inode(struct Ext2FSInode * from, const char * filename)
-{
+struct Ext2FSInode * Ext2FS::get_file_inode_from_dir_inode(struct Ext2FSInode * from, const char * filename) {
 	if(from == NULL)
 		from = load_inode(EXT2_RDIR_INODE_NUMBER);
-	//std::cerr << *from << std::endl;
 	assert(INODE_ISDIR(from));
 
-	//TODO: Ejercicio 3
+	unsigned char* buffer = (unsigned char*)(malloc(1024));
+	Ext2FSDirEntry* dir_entry;
+	int i = 0;
+	while(true) {
+		int addr = get_block_address(from, i);
+		read_block(addr, buffer);
+		dir_entry = (Ext2FSDirEntry*)(buffer);
+		if (dir_entry->name == filename) break;
+		i++;
+	}
+	free(buffer);
 
+	return load_inode(dir_entry->inode);
 }
 
 fd_t Ext2FS::get_free_fd()
