@@ -276,9 +276,15 @@ unsigned int Ext2FS::blockaddr2sector(unsigned int block)
 /**
  * Warning: This method allocates memory that must be freed by the caller
  */
-struct Ext2FSInode * Ext2FS::load_inode(unsigned int inode_number)
-{
-	//TODO: Ejercicio 2
+struct Ext2FSInode * Ext2FS::load_inode(unsigned int inode_number) {
+	int inode_group = blockgroup_for_inode(inode_number); // grupo
+	int inode_index = blockgroup_inode_index(inode_number); // offset
+	Ext2FSBlockGroupDescriptor* descriptor  = block_group(inode_group); // descriptor
+	int table = descriptor->inode_table;
+	unsigned char* buffer = (unsigned char*)(malloc(1024));
+	read_block(table, buffer);
+	free(buffer);
+	return (Ext2FSInode*)(buffer[inode_index]);
 
 }
 
