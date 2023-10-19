@@ -1,6 +1,7 @@
 Ej_*
 ej*
 *.DS_Store
+*.o
 ejec
 !*.txt
 !*.c
