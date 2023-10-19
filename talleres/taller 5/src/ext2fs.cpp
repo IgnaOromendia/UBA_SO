@@ -282,10 +282,52 @@ struct Ext2FSInode * Ext2FS::load_inode(unsigned int inode_number)
 
 }
 
-unsigned int Ext2FS::get_block_address(struct Ext2FSInode * inode, unsigned int block_number)
-{
-		
+unsigned int Ext2FS::get_block_address(struct Ext2FSInode * inode, unsigned int block_number) {
+	// Directo
+	if (block_number < 12) return inode->block[block_number];
 
+	unsigned char* buffer = (unsigned char*)(malloc(1024 << superblock()->log_block_size));
+	unsigned int result;
+	int offset;
+	int block_address;
+
+	if (block_number < 256 + 12) {
+		// Indirecto Simple
+		offset =  block_number - 12;
+		block_address = inode->block[12];
+		read_block(block_address, buffer);
+		result = (unsigned int)(buffer[offset]);
+	} else if (block_number < (256*256) + 256 + 12) {
+		// Indirecto Doble 
+		unsigned char* buffer_2 = (unsigned char*)(malloc(1024 << superblock()->log_block_size));
+		offset = 256 + 12;
+
+		int ind_doble_addr = inode->block[13];
+		read_block(ind_doble_addr, buffer);
+
+		int ind_simple_addr = (unsigned int)(buffer[(block_number - offset) / 256]);
+		read_block(ind_simple_addr, buffer_2);
+
+		result = (unsigned int)(buffer_2[(block_number - offset) % 256]);
+		free(buffer_2);
+	} else {
+		// Indirecto Triple 
+		unsigned char* buffer_2 = (unsigned char*)(malloc(1024 << superblock()->log_block_size));
+		unsigned char* buffer_3 = (unsigned char*)(malloc(1024 << superblock()->log_block_size));
+		offset = (256*256) + 256 + 12;
+
+		int ind_triple_addr = inode->block[14];
+		read_block(ind_triple_addr, buffer);
+		int ind_doble_addr = (unsigned int)(buffer[(block_number - offset) / 256]);
+
+		read_block(ind_doble_addr, buffer);
+		int ind_simple_addr = (unsigned int)(buffer[(block_number - offset) % 256]);
+
+		read_block(ind_simple_addr, buffer_2);
+		result = (unsigned int)(buffer_2[(block_number - offset) % 256]);
+	}
+
+	return result;
 }
 
 void Ext2FS::read_block(unsigned int block_address, unsigned char * buffer)
