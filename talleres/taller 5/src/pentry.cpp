@@ -1,4 +1,4 @@
-#include "include/pentry.h"
+#include "../include/pentry.h"
 #include <iostream>
 
 PartitionEntry::PartitionEntry(const unsigned char * data):raw_data(data)

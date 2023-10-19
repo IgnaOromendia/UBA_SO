@@ -1,7 +1,7 @@
-#include "include/ext2fs.h"
-#include "include/hdd.h"
-#include "include/pentry.h"
-#include "include/mbr.h"
+#include "../include/ext2fs.h"
+#include "../include/hdd.h"
+#include "../include/pentry.h"
+#include "../include/mbr.h"
 #include <cassert>
 #include <cstring>
 #include <iostream>

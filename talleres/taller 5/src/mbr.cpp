@@ -1,6 +1,6 @@
-#include "include/mbr.h"
+#include "../include/mbr.h"
 #include <assert.h>
-#include "include/pentry.h"
+#include "../include/pentry.h"
 
 #define PENTRY_SIZE			16
 #define BOOTCODE_SIZE 		446

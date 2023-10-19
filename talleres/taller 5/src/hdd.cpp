@@ -1,5 +1,5 @@
-#include "include/hdd.h"
-#include "include/mbr.h"
+#include "../include/hdd.h"
+#include "../include/mbr.h"
 #include <stdio.h>
 #include <assert.h>
 
