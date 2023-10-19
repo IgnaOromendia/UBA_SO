@@ -325,7 +325,12 @@ unsigned int Ext2FS::get_block_address(struct Ext2FSInode * inode, unsigned int 
 
 		read_block(ind_simple_addr, buffer_2);
 		result = (unsigned int)(buffer_2[(block_number - offset) % 256]);
+
+		free(buffer_2);
+		free(buffer_3);
 	}
+
+	free(buffer);
 
 	return result;
 }
