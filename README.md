@@ -45,14 +45,14 @@ Lic. en Ciencias de la Computación - FCEN - UBA\
         - [Ejercicio 1](practicas/practica_5/ej_01.md)
         - [Ejercicio 4](practicas/practica_5/ej_04.md)
         - [Ejercicio 7](practicas/practica_5/ej_07.md)
+        - [Ejercicio 8](practicas/practica_5/ej_08.md)
 - Talleres
-    - [Taller 1](talleres/taller%201/enunciado/enunciado.pdf)
+    - [Taller 1](talleres/taller%201/enunciado/enunciado.pdf) Procesos
         - [Ejercicios](talleres/taller%201/src/)
-    - [Taller 2](talleres/taller%202/enunciado/enunciado.pdf)
+    - [Taller 2](talleres/taller%202/enunciado/enunciado.pdf) Pipes
         - [Ejercicios](talleres/taller%202/pipes/)
-    - Taller 3
-        - [Ejercicios](talleres/taller%203/)
-    - [Taller 4](talleres/taller%204/taller-drivers.pdf)
+    - [Taller 3](talleres/taller%204/taller-drivers.pdf) Drivers
+    - [Taller 4](talleres/taller%204/enunciado/clase-ext2.pdf) File System
 - Parciales
     - [Primeros parciales](parciales/primeros_parciales)
         - [Recuperatioro 06-07-23](parciales/primeros_parciales/recu_06_07)
