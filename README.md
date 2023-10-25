@@ -46,6 +46,7 @@ Lic. en Ciencias de la Computación - FCEN - UBA\
         - [Ejercicio 4](practicas/practica_5/ej_04.md)
         - [Ejercicio 7](practicas/practica_5/ej_07.md)
         - [Ejercicio 8](practicas/practica_5/ej_08.md)
+    - [Practica 6](practicas/practica_6/practica6.pdf): Sistemas de Archivos
 - Talleres
     - [Taller 1](talleres/taller%201/enunciado/enunciado.pdf) Procesos
         - [Ejercicios](talleres/taller%201/src/)
