@@ -50,6 +50,7 @@ Lic. en Ciencias de la Computación - FCEN - UBA\
         - [Ejercicio 1](practicas/practica_6/ej_01.md)
         - [Ejercicio 2](practicas/practica_6/ej_02.md)
         - [Ejercicio 3](practicas/practica_6/ej_03.md)
+        - [Ejercicio 5](practicas/practica_6/ej_05.md)
 - Talleres
     - [Taller 1](talleres/taller%201/enunciado/enunciado.pdf) Procesos
         - [Ejercicios](talleres/taller%201/src/)
