@@ -64,6 +64,7 @@ Lic. en Ciencias de la Computación - FCEN - UBA\
     - [Taller 3](talleres/taller%204/taller-drivers.pdf) Drivers
     - [Taller 4](talleres/taller%204/enunciado/clase-ext2.pdf) File System
         - [Ejercicios](talleres/taller%204/src/)
+    - [Taller 5](talleres/taller%205/enunciado.pdf) Seguridad
 - Parciales
     - [Primeros parciales](parciales/primeros_parciales)
         - [Recuperatioro 06-07-23](parciales/primeros_parciales/recu_06_07)
