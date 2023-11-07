@@ -55,6 +55,7 @@ Lic. en Ciencias de la Computación - FCEN - UBA\
     - [Practica 7](practicas/practica_7/practica7.pdf): Sistemas Distribuidos
         - [Ejercicio 1](practicas/practica_7/ej_01.md)
         - [Ejercicio 2](practicas/practica_7/ej_02.md)
+        - [Ejercicio 4](practicas/practica_7/ej_04.md)
 - Talleres
     - [Taller 1](talleres/taller%201/enunciado/enunciado.pdf) Procesos
         - [Ejercicios](talleres/taller%201/src/)
