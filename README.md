@@ -53,6 +53,7 @@ Lic. en Ciencias de la Computación - FCEN - UBA\
         - [Ejercicio 5](practicas/practica_6/ej_05.md)
         - [Ejercicio 7](practicas/practica_6/ej_07.md)
         - [Ejercicio 10](practicas/practica_6/ej_10.md)
+        - [Ejercicio 11](practicas/practica_6/ej_11.md)
     - [Practica 7](practicas/practica_7/practica7.pdf): Sistemas Distribuidos
         - [Ejercicio 1](practicas/practica_7/ej_01.md)
         - [Ejercicio 2](practicas/practica_7/ej_02.md)
